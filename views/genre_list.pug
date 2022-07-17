@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+
+  p 
+    a(href="/genres/new") Create a new genre
+
+  ul
+    each genre in genre_list
+      li
+        a(href=genre.url) #{genre.title}
+
+        p #[strong Description: ] #{genre.description}
+
+    else
+      li There are no genres.

@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 #{title}
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='title') Genre:
+      input#title.form-control(type='text', placeholder='Romance, Fantasy etc.' name='title' value=(undefined===genre ? '' : genre.title))
+
+    div.form-group
+      label(for='description') Genre:
+      textarea#description.form-control(type='textarea', placeholder='How romance is so good ...' name='description' rows="5" cols="50") #{undefined===genre ? '' : genre.description}
+
+    div.form-group
+      label(for='password') Password:
+      input#password.form-control(type='password' name='password')
+    
+    button.btn.btn-primary(type='submit') Submit
+
+  if err 
+    p #{err}
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg

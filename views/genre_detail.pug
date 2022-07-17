@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+  h1 #{genre.title}
+
+  p #[strong Description: ] #{genre.description}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h3 Movies
+
+    ul#grid
+      each movie in genre_movies
+        li.grid-items
+          img(src=movie.image)
+
+          p#movie-title
+            a(href=movie.url) #{movie.title}
+            
+          p #{movie.starring}
+
+      else
+        p This genre has no movies
+
+  p
+    a(href=genre.url+'/delete') Delete genre
+
+  p
+    a(href=genre.url+'/update') Update genre

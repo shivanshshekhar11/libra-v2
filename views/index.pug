@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p#indesc Welcome to #[em Libra v2], a simple inventory application for movies developed using express.js and pug.
+
+  h3 The inventory has the following record counts ...
+
+  if error
+    p Error getting dynamic content.
+  else
+
+    ul#count
+      li.count #[a(href="/movies") Movies:] !{data.movie_count}
+      li.count #[a(href="/genres") Genres:] !{data.genre_count}
+
+    p 
+      a(href="/movies/new") Enter a new movie
+
+    p 
+      a(href="/genres/new") Create a new genre

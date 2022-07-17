@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+
+  p 
+    a(href="/movies/new") Enter a new movie
+
+  ul#grid
+    each movie in movie_list
+      li.grid-items
+
+        img(src=movie.image)
+
+        p#movie-title 
+          a(href=movie.url) #{movie.title}
+
+        p #[strong Starring: ] #{movie.starring}
+
+        p #[strong Genres: ]
+
+            each val in movie.genres
+                a(href=val.url) #{val.title }
+
+    else
+      li There are no movies.

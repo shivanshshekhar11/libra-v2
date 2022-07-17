@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1 #{movie.title}
+  
+  div#det
+    img#dposter(src=movie.image)
+
+    div#dcard
+      p #[strong Director: ] #{movie.director}
+      p #[strong Starring: ] #{movie.starring}
+      p #[strong Year: ] #{movie.year}
+      p #[strong Description: ] #{movie.description}
+      p #[strong Genre: ]
+        each val in movie.genres
+          a(href=val.url) #{val.title}
+
+      p #[strong Available at:] #{movie.available}
+
+  p
+    a(href=movie.url+'/delete') Delete movie
+  p
+    a(href=movie.url+'/update') Update movie

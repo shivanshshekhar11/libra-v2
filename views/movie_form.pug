@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  h1= title
+  
+  form(method='POST' action='')
+
+    div.form-group
+      label(for='title') Title:
+      input#title.form-control(type='text', placeholder='Name of movie' name='title' required='true' value=(undefined===movie ? '' : movie.title) )
+
+    div.form-group
+      label(for='director') Director:
+      input#director.form-control(type='text', placeholder='Director' name='director' required='true' value=(undefined===movie ? '' : movie.director) )
+
+    div.form-group
+      label(for='year') Year:
+      input#year.form-control(type='text', placeholder='2001' name='year' value=(undefined===movie ? '' : movie.year) )
+
+    div.form-group
+      label(for='description') Description:
+      textarea#description.form-control(type='textarea', placeholder='Description' name='description' required='true' rows="5" cols="50") #{undefined===movie ? '' : movie.description}
+
+    div.form-group
+      label(for='image') Image link:
+      input#image.form-control(type='url', placeholder='Image link here' name='image' value=(undefined===movie ? '' : movie.image) required='true')
+
+    div.form-group
+      label(for='starring') Cast:
+      input#starring.form-control(type='text', placeholder='Tanushree Datta' name='starring' required="true" value=(undefined===movie ? '' : movie.starring) )
+
+    div.form-group
+      label Genre:
+      div
+        for genre in genres
+          div(style='display: inline; padding-right:10px;')
+            input.checkbox-input(type='checkbox', name='genre', id=genre._id, value=genre._id, checked=genre.checked )
+            label(for=genre._id) #{genre.title}
+
+    div.form-group
+      label(for='available') Availability info:
+      input#title.form-control(type='text', placeholder='Available at ...' name='available' value=(undefined===movie ? '' : movie.available) )
+
+    if ud 
+      div.form-group
+        label(for='password') Password:
+        input#password.form-control(type='password' name='password')
+
+    button.btn.btn-primary(type='submit') Submit
+
+  if err 
+    p #{err}
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
