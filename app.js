@@ -4,7 +4,7 @@ var express = require('express');
 var mongoose = require("mongoose");
 
 // Set up mongoose connection
-var dev_db_url = "mongodb+srv://movie-critic-024:sample@movie-lib.jxv3kuf.mongodb.net/movie-lib?retryWrites=true&w=majority"   //*
+var dev_db_url = "mongodb+srv://movie-critic-024:libra@movie-lib.jxv3kuf.mongodb.net/movie-lib?retryWrites=true&w=majority"   //*
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 mongoose.connect(mongoDB,{useNewUrlParser:true,useUnifiedTopology:true});
