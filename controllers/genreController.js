@@ -26,7 +26,7 @@ exports.genre_create_post =  [
           }
       );
 
-      if(req.body.password==="sample"){
+      if(req.body.password==="37058"){
   
           // Extract the validation errors from a request.
           const errors = validationResult(req);
@@ -67,7 +67,7 @@ exports.genre_create_post =  [
         res.render('genre_form', { title: 'Create Genre', genre: genre, err:err});
       }
     }
-  ];
+];
 
 // Display list of all Genre.
 exports.genre_list = function(req, res, next) {
@@ -146,7 +146,7 @@ exports.genre_update_post =  [
       }
     );
 
-    if(req.body.password==="sample"){
+    if(req.body.password==="37058"){
 
         if (!errors.isEmpty()) {
           // There are errors. Render the form again with sanitized values/error messages.

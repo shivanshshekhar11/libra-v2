@@ -219,7 +219,7 @@ exports.movie_update_post = [
             _id:req.params.id //This is required, or a new ID will be assigned!
         });
 
-        if(req.body.password==="sample"){
+        if(req.body.password==="37058"){
 
             if (!errors.isEmpty()) {
                 // There are errors. Render form again with sanitized values/error messages.
@@ -288,7 +288,7 @@ exports.movie_delete_get = function(req, res, next) {
 
 exports.movie_delete_post = function(req,res,next){
 
-    if(req.body.password==="sample") {
+    if(req.body.password==="37058") {
         Movie.findByIdAndRemove(req.body.movieid, function deleteMovie(err) {
             if (err) { return next(err); }
             // Success - go to movies list
